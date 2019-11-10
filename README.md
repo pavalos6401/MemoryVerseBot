@@ -35,7 +35,7 @@ To run this program you'll have to use the CMD with Ruby that comes with Ruby's 
 3. Go to the directory of the MemoryVerseBot.rb file.  
 4. Type: 'ruby MemoryVerseBot.rb'.  
 
-## Known Issues
+## 5. Known Issues
 
 ### NOT SOLVED
 

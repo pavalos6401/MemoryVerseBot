@@ -25,7 +25,7 @@ class Verse
     end
 end
 
-# Class for creating the blanks and tests
+# Class for creating the blanks
 class VerseTest
     # Instance variables
     @passage_words

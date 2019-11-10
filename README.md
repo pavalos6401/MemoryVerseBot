@@ -4,25 +4,26 @@ A program to randomly remove words from a passage to help memorize Bible verses
 
 ## Table of Contents
 
-Requirements
-Recommended Modules
-Installation
-Configuration
+1. Requirements  
+2. Recommended Modules  
+3. Installation  
+4. Configuration  
 
-## Requirements
+## 1. Requirements
 
 Ruby: <https://www.ruby-lang.org/en/downloads/>
 
-## Recommended Modules
+## 2. Recommended Modules
 
-Visual Studio Code: <https://code.visualstudio.com/>
-Ruby Language Support for VS Code: <https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby>
-Ruby Solargraph: <https://marketplace.visualstudio.com/items?itemName=castwide.solargraph>
+Visual Studio Code: <https://code.visualstudio.com/>  
+Ruby Language Support for VS Code: <https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby>  
+Ruby Solargraph: <https://marketplace.visualstudio.com/items?itemName=castwide.solargraph>  
 
-## Installation
+## 3. Installation
 
 First install Ruby. Then download and extract the .zip file from this GitHub repository.
 
-## Configuration
+## 4. Configuration
 
-To run this program you'll have to use CMD. Go to the directory of the MemoryVerse.rb file, then type: 'ruby MemoryVerse.rb'.
+To run this program you'll have to use the CMD with Ruby that comes with Ruby's installation.  
+Go to the directory of the MemoryVerse.rb file, then type: 'ruby MemoryVerse.rb'.

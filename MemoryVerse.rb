@@ -14,11 +14,13 @@ class Verse
 
     # Return the string of the passage
     def return_passage
+        # String of the passage
         @passage
     end
 
-    # Return the string array of every word
+    # Return the string array of every word in the passage
     def return_passage_words
+        # Array of every word in the passage
         @passage_words
     end
 end

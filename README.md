@@ -39,6 +39,6 @@ To run this program you'll have to use the CMD with Ruby that comes with Ruby's 
 
 ### NOT SOLVED
 
-### SOLVED
+1. The program sometimes fails when checking the user's input for a blank; this leads to the grading to fail and the blank-filling to fail as well.
 
-1. The program sometimes failed when checking the user's input for a blank; this led to the grading to fail and the blank-filling to fail as well. This seemed to occur when there was punctuation in the answer. SOLUTION: Replaced gsub() with sub()  
+### SOLVED

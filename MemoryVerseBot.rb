@@ -142,6 +142,7 @@ class VerseTester
 
     # Return the passage with the user's inputs
     def return_filled_passage
+        # Blanked passage, if fill_in_blank was run before this then the blank becomes the input
         @passage_blanked
     end
 

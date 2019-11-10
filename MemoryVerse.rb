@@ -37,10 +37,6 @@ class VerseTest
         @passage_blanked = @passage_words.join(' ')
     end
 
-    def return_word_array
-        @passage_words
-    end
-
     def return_passage_blanked
         @passage_blanked
     end

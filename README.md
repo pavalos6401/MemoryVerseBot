@@ -8,6 +8,7 @@ A program to randomly remove words from a passage to help memorize Bible verses
 2. Recommended Modules  
 3. Installation  
 4. Configuration  
+5. Known Issues
 
 ## 1. Requirements
 
@@ -33,3 +34,11 @@ To run this program you'll have to use the CMD with Ruby that comes with Ruby's 
 2. Open 'Start Command Prompt with Ruby'.  
 3. Go to the directory of the MemoryVerseBot.rb file.  
 4. Type: 'ruby MemoryVerseBot.rb'.  
+
+## Known Issues
+
+### NOT SOLVED
+
+1. The program sometimes fails when checking the user's input for a blank; this leads to the grading to fail and the blank-filling to fail as well
+
+### SOLVED

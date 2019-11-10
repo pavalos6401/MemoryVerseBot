@@ -152,7 +152,7 @@ class VerseTester
             sum += @points[i]
         end
         # Grade is equal to the sum divided by the total points, and then multiplied by 100 to convert to a percentage
-        @grade = (sum / @points.length) * 100
+        @grade = (sum.to_f / @points.length) * 100
     end
 
     # Return a value from 0 to 100 for a grade
@@ -258,7 +258,12 @@ verse_tester.grade_test
 # Clear console
 system 'cls'
 
+# Display your passage 
+puts 'Your input:'
+puts verse_tester.return_filled_passage
+
 # Display actual passage
+puts "\nActual verse:"
 puts verse_maker.return_passage
 
 # Display final grade

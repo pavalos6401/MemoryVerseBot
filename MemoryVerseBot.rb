@@ -67,22 +67,22 @@ class VerseBlanker
                     # If there is a period, then add the period at the end of the blank
                     @passage_words[i] = "#{@num})#{'_' * (word.length - 1)}."
                     # Remove the punctuation from the answer key
-                    @answers[@num - 1].gsub('.', '')
+                    @answers[@num - 1] = @answers[@num - 1].gsub('.', '')
                 elsif word.include? ','
                     # If there is a comma, then add the comma at the end of the blank
                     @passage_words[i] = "#{@num})#{'_' * (word.length - 1)},"
                     # Remove the punctuation from the answer key
-                    @answers[@num - 1].gsub(',', '')
+                    @answers[@num - 1] = @answers[@num - 1].gsub('.', '')
                 elsif word.include? ';'
                     # If there is semicolon, then add the semicolon at the end of the blank
                     @passage_words[i] = "#{@num})#{'_' * (word.length - 1)};"
                     # Remove the punctuation from the answer key
-                    @answers[@num - 1].gsub(';', '')
+                    @answers[@num - 1] = @answers[@num - 1].gsub('.', '')
                 elsif word.include? ':'
                     # If there is colon, then add the colon at the end of the blank
                     @passage_words[i] = "#{@num})#{'_' * (word.length - 1)}:"
                     # Remove the punctuation from the answer key
-                    @answers[@num - 1].gsub(':', '')
+                    @answers[@num - 1] = @answers[@num - 1].gsub('.', '')
                 else
                     # If there is no punctuation then it just becomes a blank
                     @passage_words[i] = "#{@num})#{'_' * word.length}"
@@ -134,10 +134,8 @@ class VerseTester
 
     # Fill in blanks of the passage with user's input
     def fill_in_blank(input, num)
-        # Current word in the answer key
-        word = @answers[num - 1]
         # Replace the blank with the user's input
-        @passage_blanked = @passage_blanked.gsub("#{num})#{'_' * word.length}", "#{num})#{input}")
+        @passage_blanked = @passage_blanked.gsub("#{num})#{'_' * @answers[num - 1].length}", "#{num})#{input}")
     end
 
     # Return the passage with the user's inputs

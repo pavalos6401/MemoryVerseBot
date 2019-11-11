@@ -1,3 +1,5 @@
+require 'scripture_lookup'
+
 # Class for creating verses
 class VerseMaker
     # Instance variables
@@ -5,11 +7,12 @@ class VerseMaker
     @passage
 
     # Initializing VerseMaker
-    def initialize(file_name)
-        # Read the verse file and create a string array
-        @passage_words = File.read(file_name).split
+    def initialize(passage)
+        provider = ScriptureLookup.new
+        response = provider.lookup(passage, :ESV)
         # Create a string that combines the array (for printing purposes)
-        @passage = @passage_words.join(' ')
+        @passage = response.to_s
+        @passage_words = @passage.split(' ')
     end
 
     # Return the string of the passage
@@ -168,22 +171,16 @@ while !done
     # Clear console
     system 'cls'
 
-    # Display available txt files of verses
-    puts 'Verses:'
-    puts Dir.glob('*.txt')
-
     # Select verse from above list
-    print "\nVerse: "
+    print "Verse: "
     STDOUT.flush
-    file_name = gets.chomp.to_s
-    # If the user enters the name without the .txt file type, then add it
-    file_name = file_name + '.txt' if ! file_name.include? '.txt'
+    passage = gets.chomp.to_s
 
     # Clear console
     system 'cls'
 
     # Create a new verse using above information
-    verse_maker = VerseMaker.new(file_name)
+    verse_maker = VerseMaker.new(passage)
 
     # Confirm verse selection
     puts verse_maker.return_passage

@@ -39,6 +39,6 @@ To run this program you'll have to use the CMD with Ruby that comes with Ruby's 
 
 ### NOT SOLVED
 
-1. The program sometimes fails when checking the user's input for a blank; this leads to the grading to fail and the blank-filling to fail as well.
-
 ### SOLVED
+
+1. The program sometimes fails when checking the user's input for a blank; this leads to the grading to fail and the blank-filling to fail as well. SOLUTION: typo in code where the punctuation is supposed to be removed from the answer

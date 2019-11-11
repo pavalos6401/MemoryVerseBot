@@ -75,7 +75,7 @@ class VerseBlanker
                     # If there is a comma, then add the comma at the end of the blank
                     @passage_words[i] = "#{@num})#{'_' * (word.length - 1)},"
                     # Remove the punctuation from the answer key
-                    @answers[@num - 1] = @answers[@num - 1].sub('.', '')
+                    @answers[@num - 1] = @answers[@num - 1].sub(',', '')
                 elsif word.include? ';'
                     # If there is semicolon, then add the semicolon at the end of the blank
                     @passage_words[i] = "#{@num})#{'_' * (word.length - 1)};"
@@ -265,3 +265,5 @@ puts verse_maker.return_passage
 
 # Display final grade
 puts "\nYour final grade is: #{verse_tester.return_grade} %"
+
+gets

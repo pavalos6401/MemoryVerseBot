@@ -63,6 +63,7 @@ class VerseBlanker
                 # If there are any marks at the end of the word, then add them to the end of the blank
                 word = "#{word}#{word_marks[-2] + word_marks[-1]}" if word_marks[-2..-1].length > 0
             end
+            # Save the word as the new passage word
             @passage_words[i] = word
         end
         # Create a string from the now-blanked string array of the words
@@ -83,7 +84,7 @@ class VerseBlanker
 
     private
 
-    # Check for puncuation marks or quotation marks
+    # Check for puncuation marks or quotation marks, or other marks
     def check_for_marks(word)
         # Convert the word into an array
         word = word.split('')
@@ -92,14 +93,18 @@ class VerseBlanker
         # Check for end marks
         for i in 0..(END_MARKS.length - 1) do
             if word.include? END_MARKS[i]
+                # Find where it is located
                 location = word.index(END_MARKS[i])
+                # Save the mark
                 word_marks[location] = END_MARKS[i]
             end
         end
         # Check for start marks
         for i in 0..(START_MARKS.length - 1) do
             if word.include? START_MARKS[i]
+                # Find where it is located
                 location = word.index(START_MARKS[i])
+                # Save the mark
                 word_marks[location] = START_MARKS[i]
             end
         end

@@ -111,14 +111,10 @@ system 'cls'
 puts 'Your input:'
 puts verse_tester.return_filled_passage
 
-# Display actual passage
-puts "\nActual verse:"
-puts verse_maker.return_passage
+# Display the answer key
+puts "\nAnswer key: #{verse_blanker.return_answers.to_s}"
 
 # Display final grade
 puts "\nYour final grade is: #{verse_tester.return_grade} %"
-
-puts verse_tester.return_inputs.to_s
-puts verse_blanker.return_answers.to_s
 
 gets

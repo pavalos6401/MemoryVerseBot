@@ -5,6 +5,7 @@ class VerseTester
     @answers
     @points
     @grade
+    @inputs
 
     # Initialize VerseTester
     def initialize
@@ -24,6 +25,8 @@ class VerseTester
     def answers=(answers)
         # Answers to the blanks
         @answers = answers
+        # All the user inputs
+        @inputs = Array.new(answers.length, '')
     end
 
     # Set up the array for points
@@ -34,6 +37,8 @@ class VerseTester
         
     # Check if input matches the answer
     def check_input(input, num)
+        # Save the input
+        @inputs[num - 1] = input
         # Get a point for answering it correctly
         @points[num - 1] = 1 if input.downcase == @answers[num - 1].downcase
     end
@@ -65,5 +70,11 @@ class VerseTester
     def return_grade
         # Grade value from 0-100
         @grade
+    end
+
+    # Return all the inputs
+    def return_inputs
+        # All the inputted guesses
+        @inputs
     end
 end

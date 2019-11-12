@@ -38,8 +38,8 @@ To run this program you'll have to use the CMD with Ruby that comes with Ruby's 
 
 ### NOT SOLVED
 
-1. Quotation marks are not being added back into the blanks, but all other marks are.
-
 ### SOLVED
 
 1. The program sometimes fails when checking the user's input for a blank; this leads to the grading to fail and the blank-filling to fail as well. SOLUTION: typo in code where the punctuation is supposed to be removed from the answer
+2. Quotation marks are not being added back into the blanks, but all other marks are. SOLUTION: Use unicode characters \u201c and \u201d instead of \"
+

@@ -2,11 +2,9 @@
 class VerseBlanker
     # Constants
     # Marks that only appear at the end of the word
-    END_MARKS = [',', '.', ';', ':', '?', '!', ')']
+    END_MARKS = [',', '.', ';', ':', '?', '!', ')', "\u201d"]
     # Marks that only appear at the start of the word
-    START_MARKS = ['(']
-    # Marks that appear either at the start or end
-    OTHER_MARKS = ["\""]
+    START_MARKS = ['(', "\u201c"]
 
     # Instance variables
     @passage_words
@@ -103,13 +101,6 @@ class VerseBlanker
             if word.include? START_MARKS[i]
                 location = word.index(START_MARKS[i])
                 word_marks[location] = START_MARKS[i]
-            end
-        end
-        # Check for other marks
-        for i in 0..(OTHER_MARKS.length - 1) do
-            if word.include? OTHER_MARKS[i]
-                location = word.index(OTHER_MARKS[i])
-                word_marks[location] = OTHER_MARKS[i]
             end
         end
         # Return the array defining the location of the marks

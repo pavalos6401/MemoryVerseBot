@@ -118,4 +118,7 @@ puts verse_maker.return_passage
 # Display final grade
 puts "\nYour final grade is: #{verse_tester.return_grade} %"
 
+puts verse_tester.return_inputs.to_s
+puts verse_blanker.return_answers.to_s
+
 gets

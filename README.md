@@ -1,4 +1,4 @@
-# MemoryVerseBot
+# memory_verse_bot
 
 A program to randomly remove words from a passage to help memorize Bible verses
 
@@ -27,13 +27,12 @@ First install Ruby. Then download and extract the .zip file from this GitHub rep
 
 ## 4. Configuration
 
-If you wish to add more verses you simply have to add the .txt file into the same folder as MemoryVerseBot.rb. You technically can name them whatever you wish.  
 To run this program you'll have to use the CMD with Ruby that comes with Ruby's installation.  
 
 1. Search for 'Start Command Prompt with Ruby'.  
 2. Open 'Start Command Prompt with Ruby'.  
-3. Go to the directory of the MemoryVerseBot.rb file.  
-4. Type: 'ruby MemoryVerseBot.rb'.  
+3. Go to the directory of the memory_verse_bot.rb file.  
+4. Type: 'ruby memory_verse_bot.rb'.  
 
 ## 5. Known Issues
 

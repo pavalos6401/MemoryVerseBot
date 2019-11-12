@@ -58,12 +58,14 @@ class VerseBlanker
                 # The answer to the blank is the word without the marks
                 @answers[@num - 1] = remove_marks(word, word_marks)
                 # Make the word a blank
-                @passage_words[i] = "#{@num})#{'_' * @answers[@num - 1].length}"
+                word = "#{@num})#{'_' * @answers[@num - 1].length}"
                 # If there are any marks at the start of the word, then add them to the beginning of the blank
-                @passage_words[i] = "#{word_marks[0] + word_marks[1]}#{@passage_words[i]}" if word_marks[0..1].length > 0
+                word = "#{word_marks[1]}#{word}" if word_marks[1].length > 0
+                word = "#{word_marks[0]}#{word}" if word_marks[0].length > 0
                 # If there are any marks at the end of the word, then add them to the end of the blank
-                @passage_words[i] = "#{@passage_words[i]}#{word_marks[-2] + word_marks[-1]}" if word_marks[-2..-1].length > 0
+                word = "#{word}#{word_marks[-2] + word_marks[-1]}" if word_marks[-2..-1].length > 0
             end
+            @passage_words[i] = word
         end
         # Create a string from the now-blanked string array of the words
         @passage_blanked = @passage_words.join(' ')

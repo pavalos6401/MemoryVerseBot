@@ -60,39 +60,14 @@ class MarksTest
     end
 end
 
-OTHER_MARKS = ["\""]
 
 word = gets.chomp.to_s
-word_marks = Array.new(word.length, '')
-for i in 0..(OTHER_MARKS.length - 1) do
-    if word.include? OTHER_MARKS[i]
-        location = word.index(OTHER_MARKS[i])
-        word_marks[location] = OTHER_MARKS[i]
-    end
-end
-puts word_marks.to_s
-puts word_marks[0]
-
-# Convert word into an array
-word = word.split('')
-# Remove the marks from the word
-for i in 0..(word.length - 1) do
-    word[i] = '' if word_marks[i].length > 0
-end
-# Return word string without the marks
-puts word.join('')
-
-puts word_marks[0].length
-puts word.to_s
 
 marks_test = MarksTest.new
-
-puts "Sum of " + marks_test.number_marks(word_marks).to_s
 
 num = 0
 is_blank = true
 if is_blank
-    word = word.join('')
     # Number increases if the word will be a blank
     num += 1
     # Find the punctuation or other marks in the word

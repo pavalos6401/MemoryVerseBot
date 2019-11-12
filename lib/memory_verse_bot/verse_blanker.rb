@@ -1,5 +1,13 @@
 # Class for creating the blanks
 class VerseBlanker
+    # Constants
+    # Marks that only appear at the end of the word
+    END_MARKS = [',', '.', ';', ':', '?', '!', ')']
+    # Marks that only appear at the start of the word
+    START_MARKS = ['(']
+    # Marks that appear either at the start or end
+    OTHER_MARKS = ["\""]
+
     # Instance variables
     @passage_words
     @percent_chance
@@ -45,55 +53,16 @@ class VerseBlanker
             if is_blank
                 # Number increases if the word will be a blank
                 @num += 1
-                # Save the answer to the blank
-                @answers[@num - 1] = word
+                # Find the punctuation or other marks in the word
+                word_marks = check_for_marks(word)
+                # The answer to the blank is the word without the marks
+                @answers[@num - 1] = remove_marks(word, word_marks)
                 # Make the word a blank
-                @passage_words[i] = "#{@num})#{'_' * (word.length - 1)}"
-                # Check if there is any punctuation or quotation mark in the word
-                if word.include? '.'
-                    # If there is a period, then add the period at the end of the blank
-                    @passage_words[i] = @passage_words[i].rjust(1, '.')
-                    # Remove the punctuation from the answer key
-                    @answers[@num - 1] = @answers[@num - 1].sub('.', '')
-                elsif word.include? ','
-                    # If there is a comma, then add the comma at the end of the blank
-                    @passage_words[i] = @passage_words[i].rjust(1, ',')
-                    # Remove the punctuation from the answer key
-                    @answers[@num - 1] = @answers[@num - 1].sub(',', '')
-                elsif word.include? ';'
-                    # If there is semicolon, then add the semicolon at the end of the blank
-                    @passage_words[i] = @passage_words[i].rjust(1, ';')
-                    # Remove the punctuation from the answer key
-                    @answers[@num - 1] = @answers[@num - 1].sub('.', '')
-                elsif word.include? ':'
-                    # If there is colon, then add the colon at the end of the blank
-                    @passage_words[i] = @passage_words[i].rjust(1, ':')
-                    # Remove the punctuation from the answer key
-                    @answers[@num - 1] = @answers[@num - 1].sub('.', '')
-                elsif word.include? '!'
-                    # If there is an exclamation mark, then add the exclamation mark at the end of the blank
-                    @passage_words[i] = @passage_words[i].rjust(1, '!')
-                    # Remove the punctuation from the answer key
-                    @answers[@num - 1] = @answers[@num - 1].sub('!', '')
-                elsif word.include? '?'
-                    # If there is a question mark, then add the question mark at the end of the blank
-                    @passage_words[i] = @passage_words[i].rjust(1, '?')
-                    # Remove the punctuation from the answer key
-                    @answers[@num - 1] = @answers[@num - 1].sub('?', '')
-                elsif word.index("\"") == 0
-                    # If there is a quotation mark at the start, then add the quotation mark at the start of the blank
-                    @passage_words[i] = @passage_words[i].ljust(1, "\"")
-                    # Remove the quotation mark from the answer key
-                    @answers[@num - 1] = @answers[@num - 1].sub("\"", '')
-                elsif word.index("\"") == -1
-                    # If there is a quotation mark at the end, then add the quotation mark at the end of the blank
-                    @passage_words[i] = @passage_words[i].rjust(1, "\"")
-                    # Remove the quotation mark from the answer key
-                    @answers[@num - 1] = @answers[@num - 1].sub("\"", '')
-                else
-                    # If there is no punctuation then it just becomes a blank
-                    @passage_words[i] = @passage_words[i].rjust(1, '_')
-                end
+                @passage_words[i] = "#{@num})#{'_' * @answers[@num - 1].length}"
+                # If there are any marks at the start of the word, then add them to the beginning of the blank
+                @passage_words[i] = "#{word_marks[0] + word_marks[1]}#{@passage_words[i]}" if word_marks[0..1].length > 0
+                # If there are any marks at the end of the word, then add them to the end of the blank
+                @passage_words[i] = "#{@passage_words[i]}#{word_marks[-2] + word_marks[-1]}" if word_marks[-2..-1].length > 0
             end
         end
         # Create a string from the now-blanked string array of the words
@@ -110,5 +79,61 @@ class VerseBlanker
     def return_passage_blanked
         # String of the blanked passage
         @passage_blanked
+    end
+
+    private
+
+    # Check for puncuation marks or quotation marks
+    def check_for_marks(word)
+        # Convert the word into an array
+        word = word.split('')
+        # Marks in the word
+        word_marks = Array.new(word.length, '')
+        # Check for end marks
+        for i in 0..(END_MARKS.length - 1) do
+            if word.include? END_MARKS[i]
+                location = word.index(END_MARKS[i])
+                word_marks[location] = END_MARKS[i]
+            end
+        end
+        # Check for start marks
+        for i in 0..(START_MARKS.length - 1) do
+            if word.include? START_MARKS[i]
+                location = word.index(START_MARKS[i])
+                word_marks[location] = START_MARKS[i]
+            end
+        end
+        # Check for other marks
+        for i in 0..(OTHER_MARKS.length - 1) do
+            if word.include? OTHER_MARKS[i]
+                location = word.index(OTHER_MARKS[i])
+                word_marks[location] = OTHER_MARKS[i]
+            end
+        end
+        # Return the array defining the location of the marks
+        word_marks
+    end
+
+    # Return the sum of how many marks there are in the word
+    def number_marks(word_marks)
+        # Sum of how many marks there are
+        sum = 0
+        for i in 0..(word_marks.length - 1) do
+            sum += 1 if word_marks[i].length > 0
+        end
+        # Return the sum
+        sum
+    end
+
+    # Remove the marks from a word
+    def remove_marks(word, word_marks)
+        # Convert word into an array
+        word = word.split('')
+        # Remove the marks from the word
+        for i in 0..(word.length - 1) do
+            word[i] = '' if word_marks[i].length > 0
+        end
+        # Return word string without the marks
+        word.join('')
     end
 end

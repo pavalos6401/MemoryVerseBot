@@ -27,7 +27,7 @@ while !done
     version = gets.chomp
     version = version.upcase.to_sym if version.is_a? String
 
-    # Create a new verse using above information
+    # Look up a new verse using above information
     verse_maker.look_up_passage(citation, version)
 
     # Clear console

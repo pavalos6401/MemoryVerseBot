@@ -115,7 +115,7 @@ puts verse_tester.return_filled_passage
 puts "\nYour answers: #{verse_tester.return_inputs}"
 
 # Display the answer key
-puts "\nAnswer key: #{verse_blanker.return_answers.to_s}"
+puts "\nAnswer key: #{verse_blanker.return_answers}"
 
 # Display final grade
 puts "\nYour final grade is: #{verse_tester.return_grade} %"

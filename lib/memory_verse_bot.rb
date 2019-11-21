@@ -121,8 +121,8 @@ puts "\nAnswer key: #{verse_blanker.return_answers.to_s}"
 puts "\nYour final grade is: #{verse_tester.return_grade} %"
 
 # Display actual verse
-puts "\nThe passage is"
+puts "\nThe passage is:"
 puts verse_maker.return_passage
 
 # Waits until user inputs anything to end the program
-getsu
+gets

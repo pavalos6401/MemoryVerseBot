@@ -43,10 +43,10 @@ class VerseBlanker
     def make_blanks
         # Loop to determine if the word becomes a blank
         for i in 0..(@passage_words.length - 1) do
-            # Boolean to determine if the word becomes a blank
-            is_blank = rand(1..100) <= @percent_chance
             # The word is the string at the current position i
             word = @passage_words[i]
+            # Boolean to determine if the word becomes a blank (biased for words bigger than 3 letters)
+            is_blank = (rand(1..100) - word.length + 3) <= @percent_chance
             # Word becomes a blank
             if is_blank
                 # Number increases if the word will be a blank

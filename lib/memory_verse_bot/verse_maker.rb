@@ -1,14 +1,13 @@
 # Class for creating verses
 class VerseMaker
     # Instance variables
-    @provider
-    @passage_words
-    @passage
+    @provider      # Used to look up the verses
+    @passage       # The entire bible passage
+    @passage_words # The words in the passage
 
     # Initialize VerseMaker
     def initialize()
-        # Initializing 'scripture_lookup' to get Bible verses
-        @provider = ScriptureLookup.new
+        @provider = ScriptureLookup.new # Initializing 'scripture_lookup' to get Bible verses
     end
 
     # Find Bible verse
@@ -23,13 +22,11 @@ class VerseMaker
 
     # Return the string of the passage
     def return_passage
-        # String of the passage
-        @passage
+        @passage # String of the passage
     end
 
     # Return the string array of every word in the passage
     def return_passage_words
-        # Array of every word in the passage
-        @passage_words
+        @passage_words # Array of every word in the passage
     end
 end

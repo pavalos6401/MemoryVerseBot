@@ -1,42 +1,33 @@
 # Class for creating the blanks
 class VerseBlanker
     # Constants
-    # Marks that only appear at the end of the word
-    END_MARKS = [',', '.', ';', ':', '?', '!', ')', "\u201d"]
-    # Marks that only appear at the start of the word
-    START_MARKS = ['(', "\u201c"]
+    END_MARKS = [',', '.', ';', ':', '?', '!', ')', "\u201d"] # Marks that only appear at the end of the word
+    START_MARKS = ['(', "\u201c"]                             # Marks that only appear at the start of the word
 
     # Instance variables
-    @passage_words
-    @percent_chance
-    @num
-    @answers
-    @passage_blanked
+    @passage_words   # Words in the passage
+    @percent_chance  # The chance for a word to become a blank
+    @num             # The number of blanks
+    @answers         # The answers to the blanks
+    @passage_blanked # The entire passage with the blanks
 
     # Initialize VerseBlanker
     def initialize
-        # String array of the passage
-        @passage_words = Array.new
-        # Chance for the word to be a blank
-        @percent_chance = 0
-        # Number for the blank (0 when beginning)
-        @num = 0
-        # Array of answers to the blanks
-        @answers = Array.new
-        # Passage string with balnks
-        @passage_blanked = ''
+        @passage_words = Array.new # String array of the passage
+        @percent_chance = 0        # Chance for the word to be a blank
+        @num = 0                   # Number for the blank (0 when beginning)
+        @answers = Array.new       # Array of answers to the blanks
+        @passage_blanked = ''      # Passage string with balnks
     end
 
     # Get the string array of the passage
     def passage_words=(passage_words)
-        # String array of the passage
-        @passage_words = passage_words
+        @passage_words = passage_words # String array of the passage
     end
 
     # Get the chance for each word to become a blank
     def percent_chance=(percent_chance)
-        # Chance for the word to be a blank
-        @percent_chance = percent_chance
+        @percent_chance = percent_chance # Chance for the word to be a blank
     end
 
     # Make blanks in the verse

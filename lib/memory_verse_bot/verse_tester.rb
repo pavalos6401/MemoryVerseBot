@@ -1,24 +1,21 @@
 # Class to test if the input is correct
 class VerseTester
     # Instance Variables
-    @passage_blanked
-    @answers
-    @points
-    @grade
-    @inputs
+    @passage_blanked # The entire blanked passage
+    @answers         # The answers to the blanks
+    @points          # The points used to determine a grade
+    @grade           # The grade of the user
+    @inputs          # The answers/inputs of the user
 
     # Initialize VerseTester
     def initialize
-        # Blanked passage
-        @passage_blanked = ''
-        # Grade value from 0-100
-        @grade = 0
+        @passage_blanked = '' # Blanked passage
+        @grade = 0            # Grade value from 0-100
     end
 
     # Get the blanked out passage (for printing purposes)
     def passage_blanked=(passage_blanked)
-        # Blanked out passage
-        @passage_blanked = passage_blanked
+        @passage_blanked = passage_blanked # Blanked out passage
     end
 
     # Get the answers
@@ -31,8 +28,7 @@ class VerseTester
 
     # Set up the array for points
     def set_up_points
-        # Array of points for the user
-        @points = Array.new(@answers.length, 0)
+        @points = Array.new(@answers.length, 0) # Array of points for the user
     end
         
     # Check if input matches the answer
@@ -45,14 +41,12 @@ class VerseTester
 
     # Fill in blanks of the passage with user's input
     def fill_in_blank(input, num)
-        # Replace the blank with the user's input
-        @passage_blanked = @passage_blanked.sub("#{num})#{'_' * @answers[num - 1].length}", "#{num})#{input}")
+        @passage_blanked = @passage_blanked.sub("#{num})#{'_' * @answers[num - 1].length}", "#{num})#{input}") # Replace the blank with the user's input
     end
 
     # Return the passage with the user's inputs
     def return_filled_passage
-        # Blanked passage, if fill_in_blank was run before this then the blank becomes the input
-        @passage_blanked
+        @passage_blanked # Blanked passage, if fill_in_blank was run before this then the blank becomes the input
     end
 
     # Grade the test
@@ -68,13 +62,11 @@ class VerseTester
 
     # Return a value from 0 to 100 for a grade
     def return_grade
-        # Grade value from 0-100
-        @grade
+        @grade # Grade value from 0-100
     end
 
     # Return all the inputs
     def return_inputs
-        # All the inputted guesses
-        @inputs
+        @inputs # All the inputted guesses
     end
 end
